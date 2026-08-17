@@ -137,10 +137,10 @@ export function SmartMedia({
 
     return (
       <ZoomableImage
-        key={retryKey}
         alt={alt}
         className={cn(!loaded && 'animate-pulse bg-muted/35', className)}
         containerClassName={containerClassName}
+        key={retryKey}
         slot={slot}
         src={src}
         style={pendingStyle}
@@ -170,9 +170,9 @@ export function SmartMedia({
         />
       ) : (
         <video
-          key={retryKey}
           className={cn('block max-h-112 w-full rounded-lg bg-black', !loaded && 'hidden')}
           controls
+          key={retryKey}
           onError={handleError}
           onLoadedData={handleLoad}
           preload="metadata"

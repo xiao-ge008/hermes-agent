@@ -64,9 +64,7 @@ describe('SmartMedia', () => {
   })
 
   it('renders an inline video player for video kind', () => {
-    const { container } = render(
-      <SmartMedia kind="video" name="clip.mp4" src="hermes-media://stream/clip.mp4" />
-    )
+    const { container } = render(<SmartMedia kind="video" name="clip.mp4" src="hermes-media://stream/clip.mp4" />)
 
     expect(container.querySelector('video')).not.toBeNull()
     expect(container.querySelector('img')).toBeNull()
@@ -74,13 +72,9 @@ describe('SmartMedia', () => {
 
   it('shows ErrorFallback for video load failures and supports open external', () => {
     const onOpenExternal = vi.fn()
+
     const { container } = render(
-      <SmartMedia
-        kind="video"
-        name="clip.mp4"
-        onOpenExternal={onOpenExternal}
-        src="hermes-media://stream/clip.mp4"
-      />
+      <SmartMedia kind="video" name="clip.mp4" onOpenExternal={onOpenExternal} src="hermes-media://stream/clip.mp4" />
     )
 
     const video = container.querySelector('video')
